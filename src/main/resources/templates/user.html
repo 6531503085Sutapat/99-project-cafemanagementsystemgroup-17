@@ -94,6 +94,8 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
                 </ul>
             </div>
             <!-- Button to open the cart modal (separately on large screens) -->
@@ -244,7 +246,14 @@
                 </td>
                 <td th:text="${Dishes.dish_stock}"></td>
                 <td th:text="${Dishes.dish_price}"></td>
-                <td>
+                <td><button id="selectionCartButton" type="button"
+                        class="btn btn-link ml-auto d-none d-lg-inline" data-toggle="modal"
+                        th:attr="data-target='#p'+ ${Dishes.id}">
+                        Selection
+                    </button></td>
+
+
+                <td style="display: none;">
                     <!-- Repeat this structure for each form with unique Dishes.id -->
                     <form th:action="@{'/add-to-cart/' + ${Dishes.id}}" method="post" class="product-form">
                         <label for="quantity">Quantity:</label>
@@ -352,7 +361,57 @@
         </form>
     </div> -->
 
+    <!-- Selection Cart Modal -->
+    <div th:each="Dishes : ${dishes}">
+        <div class="modal fade" th:id="'p'+ ${Dishes.id}" tabindex="-1" role="dialog"
+            aria-labelledby="selectionCartLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="selectionCartLabel" th:text="${Dishes.dish_name}"></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
 
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Add your cart content here -->
+                        <div class="container" id="Cart">
+                            <h1 class="mt-5">Your Cart List</h1>
+                            <table class="table">
+                                <tr>
+
+                                    <td>dishAmount</td>
+                                    <th>dishes</th>
+                                    <th>Note</th>
+                                </tr>
+                                <tr th:each="InvoiceItem : ${invoiceitem}">
+
+                                    <td th:text="${InvoiceItem.dishAmount}"></td>
+                                    <td th:text="${InvoiceItem.dishes.dish_name}"></td>
+                                    <td th:text="${InvoiceItem.itemNote}"></td>
+                                    <td>
+                                        <a th:href="@{/delete-cart/{id}(id=${InvoiceItem.id})}"
+                                            class="btn btn-primary mt-3 mb-3">Delete</a>
+                                    </td>
+                                </tr>
+                            </table>
+                            <div class="modal-footer">
+                                <form action="/confirm_cart" method="post">
+                                    <label for="invoiceNote">Note To Staff</label>
+                                    <input type="text" id="invoiceNote" name="invoiceNote" required>
+                                    <button class="btn btn-primary mt-3 mb-3" type="submit">Checkout</button>
+                                </form>
+                            </div>
+                            <div id="cart-notification" class="alert alert-success" role="alert" style="display: none;">
+                                Dishes has been added to your cart.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Add Bootstrap JS and Popper.js for Bootstrap functionality -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -360,6 +419,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <!--java script here -->
     <script src="app.js"></script>
+
 </body>
 
 </html>
