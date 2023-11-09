@@ -271,11 +271,8 @@
                     </button></td>
 
 
-<<<<<<< HEAD
-=======
 
 
->>>>>>> 72646a6a53086f3533c177d3b1420fe9beb88217
                 <td style="display: none;">
                     <!-- Repeat this structure for each form with unique Dishes.id -->
                     <form th:action="@{'/add-to-cart/' + ${Dishes.id}}" method="post" class="product-form">
@@ -392,19 +389,7 @@
         </form>
     </div> -->
 
-    <!-- Selection Cart Modal -->
-    <div th:each="Dishes : ${dishes}">
-        <div class="modal fade" th:id="'p'+ ${Dishes.id}" tabindex="-1" role="dialog"
-            aria-labelledby="selectionCartLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="selectionCartLabel" th:text="${Dishes.dish_name}"></h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
 
-<<<<<<< HEAD
-=======
     <!-- Selection Cart Modal -->
     <div th:each="Dishes : ${dishes}">
         <div class="modal fade" th:id="'p'+ ${Dishes.id}" tabindex="-1" role="dialog"
@@ -417,7 +402,6 @@
                             <span aria-hidden="true">&times;</span>
 
 
->>>>>>> 72646a6a53086f3533c177d3b1420fe9beb88217
                         </button>
                     </div>
                     <div class="modal-body">
@@ -427,20 +411,14 @@
                             <table class="table">
                                 <tr>
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 72646a6a53086f3533c177d3b1420fe9beb88217
                                     <td>dishAmount</td>
                                     <th>dishes</th>
                                     <th>Note</th>
                                 </tr>
                                 <tr th:each="InvoiceItem : ${invoiceitem}">
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 72646a6a53086f3533c177d3b1420fe9beb88217
                                     <td th:text="${InvoiceItem.dishAmount}"></td>
                                     <td th:text="${InvoiceItem.dishes.dish_name}"></td>
                                     <td th:text="${InvoiceItem.itemNote}"></td>
@@ -466,10 +444,7 @@
             </div>
         </div>
     </div>
-<<<<<<< HEAD
-=======
 
->>>>>>> 72646a6a53086f3533c177d3b1420fe9beb88217
 
     <!-- Add Bootstrap JS and Popper.js for Bootstrap functionality -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -478,10 +453,7 @@
     <!--java script here -->
     <script src="app.js"></script>
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 72646a6a53086f3533c177d3b1420fe9beb88217
 </body>
 
 
