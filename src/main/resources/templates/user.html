@@ -264,9 +264,8 @@
                 </td>
                 <td th:text="${Dishes.dish_stock}"></td>
                 <td th:text="${Dishes.dish_price}"></td>
-                <td><button id="selectionCartButton" type="button"
-                        class="btn btn-link ml-auto d-none d-lg-inline" data-toggle="modal"
-                        th:attr="data-target='#p'+ ${Dishes.id}">
+                <td><button id="selectionCartButton" type="button" class="btn btn-link ml-auto d-none d-lg-inline"
+                        data-toggle="modal" th:attr="data-target='#p'+ ${Dishes.id}">
                         Selection
                     </button></td>
 
@@ -405,9 +404,9 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <!-- Add your cart content here -->
+                        <!-- Add your option cart content here -->
                         <div class="container" id="Cart">
-                            <h1 class="mt-5">Your Cart List</h1>
+                            <h1 class="mt-5"> Cart List</h1>
                             <table class="table">
                                 <tr>
 
@@ -458,4 +457,3 @@
 
 
 </html>
-
